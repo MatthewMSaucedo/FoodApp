@@ -1,0 +1,14 @@
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.csprojAssemblyReference.cache
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.csproj.CoreCompileInputs.cache
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.RazorAssemblyInfo.cache
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.RazorAssemblyInfo.cs
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.AssemblyInfoInputs.cache
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.AssemblyInfo.cs
+C:\Users\Matt\source\repos\foodApp\foodApp\bin\Debug\netcoreapp2.1\foodApp.deps.json
+C:\Users\Matt\source\repos\foodApp\foodApp\bin\Debug\netcoreapp2.1\foodApp.runtimeconfig.json
+C:\Users\Matt\source\repos\foodApp\foodApp\bin\Debug\netcoreapp2.1\foodApp.runtimeconfig.dev.json
+C:\Users\Matt\source\repos\foodApp\foodApp\bin\Debug\netcoreapp2.1\foodApp.dll
+C:\Users\Matt\source\repos\foodApp\foodApp\bin\Debug\netcoreapp2.1\foodApp.pdb
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.RazorTargetAssemblyInfo.cache
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.dll
+C:\Users\Matt\source\repos\foodApp\foodApp\obj\Debug\netcoreapp2.1\foodApp.pdb
