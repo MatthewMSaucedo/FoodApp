@@ -10,7 +10,7 @@ namespace foodApp
     public class ValuesController : Controller {
         [HttpGet]
         public IEnumerable<string> Get() {
-            return new string[] { "Proof", "of", "concept" };
+            return new string[] { "Backend", "is", "connected" };
         }
     }
 }

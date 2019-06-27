@@ -47,4 +47,14 @@ export class ShoppingListService
     oldIngredient.name = newIngredient.name;
     this.ingredientsChanged.next( this.ingredients.slice() );
   }
+
+  deleteIngredient(ingredient: Ingredient): void {
+    for (let i = 0; i < this.ingredients.length; i++) {
+        if ( this.ingredients[i] === ingredient) {
+            this.ingredients.splice(i, 1);
+        }
+    }
+    this.ingredientsChanged.next(this.ingredients.slice());
+
+  }
 }
