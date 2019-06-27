@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
 
-  // recipes list for application
+  // recipes list for application TODO: Replac testData
   private recipes: Recipe[] =
   [    // test recipe
     new Recipe
@@ -32,8 +32,14 @@ export class RecipeService {
       ]
     )
   ];
+  // private recipes: Recipe[] = [];
 
   constructor(private shoppingListService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   // return deep copy of recipe array
   getRecipes(): Recipe[]
