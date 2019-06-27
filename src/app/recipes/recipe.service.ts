@@ -42,14 +42,12 @@ export class RecipeService {
   }
 
   // return deep copy of recipe array
-  getRecipes(): Recipe[]
-  {
+  getRecipes(): Recipe[] {
     return this.recipes.slice();
   }
 
   // returns recipe at given index
-  getRecipe(index: number): Recipe
-  {
+  getRecipe(index: number): Recipe {
     return this.recipes[index];
   }
 
