@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings": {
+        "FoodConnectionString": "server=(localdb)\\MSSQLLocalDB;Database=FoodAppDb;Integrated Security=true;MultipleActiveResultSets=true;"
+    }
+}
