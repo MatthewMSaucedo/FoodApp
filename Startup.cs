@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using FoodAppContext.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using foodApp.Data;
 
 namespace foodApp
 {
@@ -26,13 +27,13 @@ namespace foodApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddSingleton<IConfiguration>(_config);
-
             services.AddDbContext<FoodContext>(cfg =>
                 cfg.UseSqlServer(
                     _config.GetConnectionString("DefaultDatabase")
                 )
             );
+
+            services.AddScoped<IFoodRepository, FoodRepository>();
 
             services.AddMvc();
         }

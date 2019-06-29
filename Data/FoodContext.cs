@@ -15,5 +15,6 @@ namespace FoodAppContext.Data
         { }
 
         public DbSet<Recipe> Recipe { get; set; }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace foodApp
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller {
+    public class AppController : Controller {
         [HttpGet]
         public IEnumerable<string> Get() {
             return new string[] { "Backend", "is", "connected" };
