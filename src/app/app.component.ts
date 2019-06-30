@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
     constructor(private _httpService: HttpClient) { }
 
     ngOnInit() {
-        this._httpService.get('/api/values').subscribe(values => {
-            this.apiValues = values;
+        this._httpService.get('/api/recipes').subscribe(response => {
+            console.log(response);
         });
     }
 }

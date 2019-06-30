@@ -8,7 +8,6 @@ import { Subject } from 'rxjs';
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
 
-    // recipes list for application TODO: Replace testData
     private recipes: Recipe[] = [    // test recipe
         new Recipe (
             'Fried Rice',

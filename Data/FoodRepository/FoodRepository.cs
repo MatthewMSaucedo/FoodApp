@@ -1,5 +1,4 @@
 using foodApp.Data.Entities;
-using FoodAppContext.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +15,12 @@ namespace foodApp.Data
             _context = context;
         }
 
-        public IEnumerable<Recipe> GetAllProducts()
+        public void AddEntity(object model)
+        {
+            _context.Add(model);
+        }
+
+        public IEnumerable<Recipe> GetAllRecipes()
         {
             return _context.Recipes
                 .OrderBy(recipe => recipe.Name)

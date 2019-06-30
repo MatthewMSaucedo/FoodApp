@@ -5,7 +5,8 @@ namespace foodApp.Data
 {
     public interface IFoodRepository
     {
-        IEnumerable<Recipe> GetAllProducts();\
-        bool SaveAll()
+        IEnumerable<Recipe> GetAllRecipes();
+        bool SaveAll();
+        void AddEntity( object model );
     }
 }
