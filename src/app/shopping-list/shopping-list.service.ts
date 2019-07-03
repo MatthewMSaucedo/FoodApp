@@ -9,17 +9,17 @@ export class ShoppingListService {
 
     // shopping list made up of ingredients
     private ingredients: Ingredient[] = [
-        new Ingredient( 'Apples', 5 ),
-        new Ingredient( 'Tomatoes', 10 )
+        new Ingredient('Apples', 5),
+        new Ingredient('Tomatoes', 10)
     ];
 
-    // return deep copy of shopping list list
+    // return deep copy of shopping list
     getIngredients(): Ingredient[] {
         return this.ingredients.slice();
     }
 
     // return shallow of ingredient at given index
-    getIngredient( index: number): Ingredient {
+    getIngredient( index: number ): Ingredient {
         return this.ingredients[index];
     }
 
@@ -36,13 +36,13 @@ export class ShoppingListService {
     }
 
     // updates ingredient in shopping list with edited fields
-    updateIngredient(oldIngredient: Ingredient, newIngredient: Ingredient): void {
+    updateIngredient( oldIngredient: Ingredient, newIngredient: Ingredient ): void {
         oldIngredient.amount = newIngredient.amount;
         oldIngredient.name = newIngredient.name;
         this.ingredientsChanged.next( this.ingredients.slice() );
     }
 
-    deleteIngredient(ingredient: Ingredient): void {
+    deleteIngredient( ingredient: Ingredient ): void {
         for (let i = 0; i < this.ingredients.length; i++) {
             if (this.ingredients[i] === ingredient) {
                 this.ingredients.splice(i, 1);

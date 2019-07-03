@@ -1,45 +1,53 @@
-import {Recipe} from './recipe.model';
-import {Injectable} from '@angular/core';
-import {Ingredient} from '../shared/ingredient.model';
-import {ShoppingListService} from '../shopping-list/shopping-list.service';
+import { Recipe } from './recipe.model';
+import { Injectable } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { GetRecipesResponse } from '../shared/get-recipes-response.model';
+import { ConstantPool } from '@angular/compiler';
 
 @Injectable({providedIn: 'root'})
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
+    private recipes: Recipe[];
 
-    private recipes: Recipe[] = [    // test recipe
-        new Recipe (
-            'Fried Rice',
-            `It's rice, but fried.`,
-            'https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-8-1200.jpg', [
-                new Ingredient('Cup of Rice', 1),
-                new Ingredient('broccoli', 6),
-                new Ingredient('egg', 2)
-            ]
-        ),
-        // test recipe
-        new Recipe(
-            'Grilled Cheese',
-            `It's cheese, but grilled.`,
-            'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/0b87fc075ff04cd29ee4f739c7406ffe/finalFB.jpg', [
-                new Ingredient('Slice of Bread', 2),
-                new Ingredient('Slice of Cheddar', 2)
-            ]
-        )
-    ];
-    // private recipes: Recipe[] = [];
-
-    constructor(private shoppingListService: ShoppingListService) { }
+    constructor(
+        private shoppingListService: ShoppingListService,
+        private _httpService: HttpClient
+    ) { }
 
     setRecipes(recipes: Recipe[]) {
         this.recipes = recipes;
         this.recipesChanged.next(this.recipes.slice());
     }
 
-    // return deep copy of recipe array
-    getRecipes(): Recipe[] {
-        return this.recipes.slice();
+    // return call from backend
+    public getRecipes(): void {
+        this._httpService.get('/api/recipes').subscribe((response) => {
+            this.recipes = this.recipesFromResponse(response);
+            this.recipesChanged.next(this.recipes);
+        });
+    }
+
+    public recipesFromResponse(response): Recipe[] {
+        const recipes = new Array<Recipe>();
+        for (let i = 0; i < response.length; i++) {
+            const recipe = {
+                id: response[i].id,
+                name: response[i].name,
+                description: response[i].description,
+                imagePath: response[i].imagePath,
+                ingredients: response[i].ingredients
+            };
+            recipes.push(recipe);
+        }
+        console.log('recipes!', recipes)
+        return recipes;
+    }
+
+    public listRecipes() {
+        return this.recipes;
     }
 
     // returns recipe at given index
@@ -52,7 +60,12 @@ export class RecipeService {
     }
 
     addRecipe(recipe: Recipe) {
-        this.recipes.push(recipe);
+        this._httpService.post('/api/recipes', recipe).subscribe((response) => {
+            this.recipes = this.recipesFromResponse(response);
+            this.recipesChanged.next(this.recipes);
+            this.recipes.push(recipe);
+        });
+
         this.recipesChanged.next(this.recipes.slice());
     }
 

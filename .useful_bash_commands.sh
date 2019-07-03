@@ -4,22 +4,17 @@
 mac_file_path=~/Documents/Github/FoodApp/
 pc_file_path=~/source/repos/foodApp/foodApp/
 
-function navFoodAppPc() {
-    cd $pc_file_path
-}
+# Navigate FoodApp on Pc.
+alias n-fapc="cd $pc_file_path"
 
-function navFoodAppMac() {
-    cd $mac_file_path
-}
+# Navigate FoodApp on Mac.
+alias n-fam="cd $mac_file_path"
 
-function runServer() {
-    dotnet watch run
-}
+# Run server.
+alias rs="dotnet watch run"
 
-function runApp() {
-    ng serve --proxy-config proxy.config.json
-}
+# App start
+alias as="ng serve --proxy-config proxy.config.json"
 
-function updateDataBase() {
-    dotnet ef database update
-}
+# Update database
+alias udb="dotnet ef database update"
